@@ -1,4 +1,4 @@
-h1, h2, p {
+h1, h2 {
 	color: yellow;
 	text-align: center;
 }
@@ -15,14 +15,37 @@ body {
 	background-color: black;
 }
 
-.Jedi, {
-	float: left;
+h3, p {
+	color: yellow;
+}
 
+.jedi-container {
+	float: left;
+	width: 10%;
+}
+
+.sith-container {
+	float: right;
+	width: 10%;
 }
 
 #tooltip {
 	color: white;
 	text-align: center;
+}
+
+.jedi {
+	background-color: white;
+	display: inline-block;
+	margin: 10px 10px 10px 10px;	
+	border: 3px solid #73AD21; 
+}
+
+.sith {
+	background-color: grey;
+	display: inline-block;
+	margin: 10px 10px 10px 10px;
+	border: 3px solid #73AD21; 
 }
 
 .jedi:hover {
@@ -33,6 +56,3 @@ body {
 	opacity: 0.5;
 }
 
-.Sith {
-	float: right;
-}
