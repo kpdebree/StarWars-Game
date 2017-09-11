@@ -4,18 +4,44 @@
 	<title>Star Wars - Jedi Master</title>
 	<link rel="stylesheet" type="text/css" href="assets/css/reset.css">
 	<link rel="stylesheet" type="text/css" href="assets/css/style.css">
+	<script src="https://code.jquery.com/jquery.js"></script>
 </head>
 <body>
-	<h1>STAR WARS</h1>
+	<h1 class="Game-Title">STAR WARS</h1>
 	<div class="character pool">
 		<h2>Choose Your Character</h2>
 		<div class="Jedi">
-			<p>Jedi</p>
+			<div class="lukeskywalker">
+				  <img src="assets/images/lukeskywalker.jpg" alt="Luke Skywalker" class="jedi" height="200" width="200">
+				    <div class="tooltip">
+				    	<p>Luke Skywalker</p>
+				    </div>
+			</div>
+			<div class="obiwan">
+				  <img src="assets/images/obiwan.jpg" alt="Obi-Wan Kenobi" class="jedi" height="200" width="200">
+				    <div class="tooltip">
+				    	<p>Obi-Wan Kenobi</p>
+				    </div>
+			</div>
 		</div>
 		<div class="Sith">
 			<p>Sith</p>
+			<div class="palpatine">
+				  <img src="assets/images/palpatine.jpg" alt="Emperor Palpatine" class="sith" height="200" width="200">
+				    <div class="tooltip">
+				    	<p>Emperor Palpatine</p>
+				    </div>
+			</div>
+			<div class="obiwan">
+				  <img src="assets/images/darthvader.jpg" alt="Darth Vader" class="sith" height="200" width="200">
+				    <div class="tooltip">
+				    	<p>Darth Vader</p>
+				    </div>
+			</div>
 		</div>
 	</div>
+
+	<script src="assets/javascript/game.js"></script>
 
 
 </body>

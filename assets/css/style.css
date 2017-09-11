@@ -3,16 +3,34 @@ h1, h2, p {
 	text-align: center;
 }
 
+.Game-Title {
+	font-family: Georgia;
+	font-size: 96px;
+}
+
 body {
 	background-image: url(../images/background.png);
-	height: 100%;
 	clear: both;
+	background-repeat: no-repeat;
 	background-color: black;
 }
 
-.Jedi {
+.Jedi, {
 	float: left;
 
+}
+
+#tooltip {
+	color: white;
+	text-align: center;
+}
+
+.jedi:hover {
+	opacity: 0.5;
+}
+
+.sith:hover {
+	opacity: 0.5;
 }
 
 .Sith {
