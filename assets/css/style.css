@@ -1,0 +1,20 @@
+h1, h2, p {
+	color: yellow;
+	text-align: center;
+}
+
+body {
+	background-image: url(../images/background.png);
+	height: 100%;
+	clear: both;
+	background-color: black;
+}
+
+.Jedi {
+	float: left;
+
+}
+
+.Sith {
+	float: right;
+}
