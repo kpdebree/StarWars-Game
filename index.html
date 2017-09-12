@@ -2,45 +2,85 @@
 <html>
 <head>
 	<title>Star Wars - Jedi Master</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
 	<link rel="stylesheet" type="text/css" href="assets/css/reset.css">
 	<link rel="stylesheet" type="text/css" href="assets/css/style.css">
 	<script src="https://code.jquery.com/jquery.js"></script>
 </head>
 <body>
 	<h1 class="Game-Title">STAR WARS</h1>
-	<div class="character pool">
-		<h2>Choose Your Character</h2>
-		<div class="jedi-container">
-			<h3>Jedi</h3>
-			<div class="lukeskywalker">
-				  <img src="assets/images/lukeskywalker.jpg" alt="Luke Skywalker" class="jedi" height="200" width="200">
-				    <div class="tooltip">
-				    	<p>Luke Skywalker</p>
-				    </div>
+	<div class="container-fluid">
+		<div class="row" id="gameboard">
+			<div class="col-lg-6">
+				<div id="luke-skywalker" class="jedi character">
+					<h2><span class="name">Luke Skywalker</span> <span class="health-points">100</span></h2>
+						<div class="progress">
+	  						<div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" style="width: 100%">
+		    				<span class="sr-only">100% Complete</span>
+		  				</div>
+	  				</div>
+					<img src="assets/images/lukeskywalker8bit.png" alt="luke sprite" />
+				</div>
+				<div id="leia-organa" class="jedi character">
+					<h2><span class="name">Leia Organa</span> <span class="health-points">100</span></h2>
+						<div class="progress">
+	  						<div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" style="width: 100%">
+		    				<span class="sr-only">100% Complete</span>
+		  				</div>
+	  				</div>
+					<img src="assets/images/leiaorgana8bit.png" alt="leia sprite" />
+				</div>
+				<div id="han-solo" class="jedi character">
+					<h2><span class="name">Han Solo</span> <span class="health-points">100</span></h2>
+						<div class="progress">
+	  						<div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" style="width: 100%">
+		    				<span class="sr-only">100% Complete</span>
+		  				</div>
+	  				</div>
+					<img src="assets/images/hansolo8bit.png" alt="han sprite" />
+				</div>
 			</div>
-			<div class="obiwan">
-				  <img src="assets/images/obiwan.jpg" alt="Obi-Wan Kenobi" class="jedi" height="200" width="200">
-				    <div class="tooltip">
-				    	<p>Obi-Wan Kenobi</p>
-				    </div>
-			</div>
-		</div>
-		<div class="sith-container">
-			<h3>Sith</h3>
-			<div class="palpatine">
-				  <img src="assets/images/palpatine.jpg" alt="Emperor Palpatine" class="sith" height="200" width="200">
-				    <div class="tooltip">
-				    	<p>Emperor Palpatine</p>
-				    </div>
-			</div>
-			<div class="obiwan">
-				  <img src="assets/images/darthvader.jpg" alt="Darth Vader" class="sith" height="200" width="200">
-				    <div class="tooltip">
-				    	<p>Darth Vader</p>
-				    </div>
+			<div class="col-lg-6">
+				<div id="darth-vader" class="sith character">
+					<h2><span class="name">Darth Vader</span> <span class="health-points">100</span></h2>
+						<div class="progress">
+	  						<div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" style="width: 100%">
+		    				<span class="sr-only">100% Complete</span>
+		  				</div>
+	  				</div>
+					<img src="assets/images/darthvader8bit.png" alt="darth vader sprite" />
+				</div>
+				<div id="darth-sidious" class="sith character">
+					<h2><span class="name">Darth Sidious</span> <span class="health-points">100</span></h2>
+						<div class="progress">
+	  						<div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" style="width: 100%">
+		    				<span class="sr-only">100% Complete</span>
+		  				</div>
+	  				</div>
+					<img src="assets/images/darthsidious.png" alt="darth sidious sprite" />
+				</div>
+				<div id="boba-fett" class="sith character">
+					<h2><span class="name">Boba Fett</span> <span class="health-points">100</span></h2>
+						<div class="progress">
+	  						<div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" style="width: 100%">
+		    				<span class="sr-only">100% Complete</span>
+		  				</div>
+	  				</div>
+					<img src="assets/images/bobafett8bit.png" alt="boba fett sprite" />
+				</div>
 			</div>
 		</div>
 	</div>
+	<div class="container-fluid">
+		<div class="row" id="battlespace">
+			<img src="assets/images/background.png" height="500" width="750" />
+		</div>
+	</div>
+
+
+
+
+
 
 	<script src="assets/javascript/game.js"></script>
 

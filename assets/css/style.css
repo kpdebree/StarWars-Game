@@ -1,4 +1,4 @@
-h1, h2 {
+h1 {
 	color: yellow;
 	text-align: center;
 }
@@ -9,43 +9,29 @@ h1, h2 {
 }
 
 body {
-	background-image: url(../images/background.png);
 	clear: both;
 	background-repeat: no-repeat;
-	background-color: black;
+	background: #485a7d;
 }
 
-h3, p {
-	color: yellow;
-}
-
-.jedi-container {
-	float: left;
-	width: 10%;
-}
-
-.sith-container {
-	float: right;
-	width: 10%;
-}
-
-#tooltip {
+h2 {
+	font-family: Georgia;
 	color: white;
-	text-align: center;
+}
+
+#battlespace {
+	position: relative;
+	left: 25%;
 }
 
 .jedi {
-	background-color: white;
 	display: inline-block;
 	margin: 10px 10px 10px 10px;	
-	border: 3px solid #73AD21; 
 }
 
 .sith {
-	background-color: grey;
 	display: inline-block;
 	margin: 10px 10px 10px 10px;
-	border: 3px solid #73AD21; 
 }
 
 .jedi:hover {
