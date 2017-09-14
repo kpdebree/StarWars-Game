@@ -6,23 +6,24 @@ console.log("ready")
 	var opponent_selected = false;
 	var current_player = {};
 	var current_opponent = {};
+	var dodge = [false, false];
 	var hp_bar_array = $(".health-points");
 	var hp_bar_display_array = $(".progress-bar");
 
 	var characters = [{
 		name: "Luke Skywalker",
 		id: "luke-skywalker",
-		base_health_points: 200,
-		health_points: 200,
+		base_health_points: 300,
+		health_points: 300,
 		base_mana_points: 100,
 		mana_points: 100,
-		base_attack_power: 20,
-		attack_power: 20,
-		counter_attack_power: 20,
+		base_attack_power: 30,
+		attack_power: 30,
+		counter_attack_power: 30,
 		jedi_number: 0,
 		faction: "Jedi",
 		character_number: 0,
-		background: "lukebackdrop.jpg",
+		background: "assets/images/lukebackdrop.jpg",
 		special_title: "The Force",
 		special_descr: "Luke Skywalker has the ability to use the Force to drain energy from his opponent and heal himself.",
 		dialogue_first: ["Father...", "", ""],
@@ -37,15 +38,15 @@ console.log("ready")
 		health_points: 200,
 		base_mana_points: 100,
 		mana_points: 100,
-		base_attack_power: 20,
-		attack_power: 20,
-		counter_attack_power: 20,
+		base_attack_power: 15,
+		attack_power: 15,
+		counter_attack_power: 15,
 		jedi_number: 1,
 		faction: "Jedi",
 		character_number: 1,
-		background: "lukebackdrop.jpg",
-		special_title: "The Force",
-		special_descr: "Luke Skywalker has the ability to use the Force to drain energy from his opponent and heal himself.",
+		background: "assets/images/leiabackdrop.jpg",
+		special_title: "Stun",
+		special_descr: "Leia Organa has the ability to stun an enemy with a hidden blaster, blocking their attack for a turn.",
 		dialogue_first: ["Father...", "", ""],
 		dialogue_special: "Obi-Wan: Luke, use the force!",
 		dialogue_victory: ["Response 1", "No, your highness. I am a Jedi, like my father before me.", "Response 3"],
@@ -54,8 +55,8 @@ console.log("ready")
 	}, {
 		name: "Han Solo",
 		id: "han-solo",
-		base_health_points: 200,
-		health_points: 200,
+		base_health_points: 500,
+		health_points: 500,
 		base_mana_points: 100,
 		mana_points: 100,
 		base_attack_power: 20,
@@ -64,9 +65,9 @@ console.log("ready")
 		jedi_number: 2,
 		faction: "Jedi",
 		character_number: 2,
-		background: "lukebackdrop.jpg",
-		special_title: "The Force",
-		special_descr: "Luke Skywalker has the ability to use the Force to drain energy from his opponent and heal himself.",
+		background: "assets/images/hansolobackdrop.jpg",
+		special_title: "Wookie Ally",
+		special_descr: "Han Solo's Wookie Ally, Chewbacca, has the ability to join him in battle and fire a second shot",
 		dialogue_first: ["Father...", "", ""],
 		dialogue_special: "Obi-Wan: Luke, use the force!",
 		dialogue_victory: ["Response 1", "No, your highness. I am a Jedi, like my father before me.", "Response 3"],
@@ -75,8 +76,8 @@ console.log("ready")
 	}, {
 		name: "Darth Vader",
 		id: "darth-vader",
-		base_health_points: 200,
-		health_points: 200,
+		base_health_points: 600,
+		health_points: 600,
 		base_mana_points: 100,
 		mana_points: 100,
 		base_attack_power: 20,
@@ -85,9 +86,9 @@ console.log("ready")
 		sith_number: 0,
 		faction: "Sith",
 		character_number: 3,
-		background: "lukebackdrop.jpg",
-		special_title: "The Force",
-		special_descr: "Luke Skywalker has the ability to use the Force to drain energy from his opponent and heal himself.",
+		background: "assets/images/vaderbackdrop.jpg",
+		special_title: "Force Choke",
+		special_descr: "Lord Vader has the ability to use the force to choke his enemies into submission. Deals double base damage, and base damage to mana",
 		dialogue_first: ["Father...", "", ""],
 		dialogue_special: "Obi-Wan: Luke, use the force!",
 		dialogue_victory: ["Response 1", "No, your highness. I am a Jedi, like my father before me.", "Response 3"],
@@ -96,19 +97,19 @@ console.log("ready")
 	}, {
 		name: "Darth Sidious",
 		id: "darth-sidious",
-		base_health_points: 200,
-		health_points: 200,
+		base_health_points: 150,
+		health_points: 150,
 		base_mana_points: 100,
 		mana_points: 100,
-		base_attack_power: 20,
-		attack_power: 20,
-		counter_attack_power: 20,
+		base_attack_power: 40,
+		attack_power: 40,
+		counter_attack_power: 40,
 		sith_number: 1,
 		faction: "Sith",
 		character_number: 4,
-		background: "lukebackdrop.jpg",
-		special_title: "The Force",
-		special_descr: "Luke Skywalker has the ability to use the Force to drain energy from his opponent and heal himself.",
+		background: "assets/images/thronebackdrop.jpg",
+		special_title: "Force Lightning",
+		special_descr: "Darth Sidious, as a dark lord of the Sith, has the ability to use his extreme power to drain power and deal significant damage.",
 		dialogue_first: ["Father...", "", ""],
 		dialogue_special: "Obi-Wan: Luke, use the force!",
 		dialogue_victory: ["Response 1", "No, your highness. I am a Jedi, like my father before me.", "Response 3"],
@@ -127,9 +128,9 @@ console.log("ready")
 		sith_number: 2,
 		faction: "Sith",
 		character_number: 5,
-		background: "lukebackdrop.jpg",
-		special_title: "The Force",
-		special_descr: "Luke Skywalker has the ability to use the Force to drain energy from his opponent and heal himself.",
+		background: "assets/images/lukebackdrop.jpg",
+		special_title: "Dual Blasters",
+		special_descr: "Boba Fett has the ability to use dual blasters for a time, which deals double damage.",
 		dialogue_first: ["Father...", "", ""],
 		dialogue_special: "Obi-Wan: Luke, use the force!",
 		dialogue_victory: ["Response 1", "No, your highness. I am a Jedi, like my father before me.", "Response 3"],
@@ -233,56 +234,67 @@ console.log("ready")
 		//Runs an AI to determine what action should be taken
 		CombatAI();
 
+		if (dodge[1] === false) {
+
 		//Subtracts HP
-		current_opponent.health_points = current_opponent.health_points - current_player.attack_power;
+			current_opponent.health_points = current_opponent.health_points - current_player.attack_power;
 
-		if(current_opponent.health_points <= 0) {
+			if(current_opponent.health_points <= 0) {
 
-			current_opponent.health_points = 0
+				current_opponent.health_points = 0
+			}
+
+			//Increases attacking power
+			current_player.attack_power = current_player.attack_power + current_player.base_attack_power;
+
+			//Updates graphic display
+			$(hp_bar_array[current_opponent.character_number]).html(current_opponent.health_points);
+
+			var current_opponent_percent = (current_opponent.health_points / current_opponent.base_health_points) * 100;
+
+			if (current_opponent_percent < 50) {
+				$(hp_bar_display_array[current_opponent.character_number]).addClass("progress-bar-warning");
+			}
+
+			if (current_opponent_percent < 20) {
+				$(hp_bar_display_array[current_opponent.character_number]).addClass("progress-bar-danger");
+			}
+
+			$(hp_bar_display_array[current_opponent.character_number]).css("width", current_opponent_percent + "%")
+
+			if(current_opponent.health_points <= 0) {
+
+					$("#" + current_opponent.id).css("display", "none");
+					alert(current_opponent.name + " has been defeated")
+					opponent_selected = false;
+					current_opponent = {};
+					opponents--;
+
+					if(opponents <= 0) {
+						alert("You have won!")
+					}
+			}
+
+		} else {
+			alert("Dodge!")
+			dodge[1] = false;
 		}
-
-		//Increases attacking power
-		current_player.attack_power = current_player.attack_power + current_player.base_attack_power;
-
-		//Updates graphic display
-		$(hp_bar_array[current_opponent.character_number]).html(current_opponent.health_points);
-
-		var current_opponent_percent = (current_opponent.health_points / current_opponent.base_health_points) * 100;
-
-		if (current_opponent_percent < 50) {
-			$(hp_bar_display_array[current_opponent.character_number]).addClass("progress-bar-warning");
-		}
-
-		if (current_opponent_percent < 20) {
-			$(hp_bar_display_array[current_opponent.character_number]).addClass("progress-bar-danger");
-		}
-
-		$(hp_bar_display_array[current_opponent.character_number]).css("width", current_opponent_percent + "%")
-
-		if(current_opponent.health_points <= 0) {
-
-				$("#" + current_opponent.id).css("display", "none");
-				alert(current_opponent.name + " has been defeated")
-				opponent_selected = false;
-				current_opponent = {};
-				opponents--;
-
-				if(opponents <= 0) {
-					alert("You have won!")
-				}
-		}
-
-
-
 
 
 	}
 
 	function PlayerSpecial() {
 
+		CombatAI();
+
 	}
 
 	function PlayerDodge() {
+
+		dodge[0] = true; 
+		alert("Player Dodge")
+		CombatAI();
+		dodge[0] = false;
 
 	}
 
@@ -296,7 +308,7 @@ console.log("ready")
 
 			OpponentAttack();
 			console.log("Attack")
-		}
+		} 
 
 		if (randomNumber === 1 ) {
 			
@@ -305,10 +317,50 @@ console.log("ready")
 			console.log("Dodge")
 		}
 
+		if (randomNumber === 2 && current_opponent.mana_points === 100) {
+
+			OpponentSpecial();
+			console.log("Special")
+
+		} else if (randomNumber === 2) {
+
+			OpponentAttack();
+			console.log("Attack by Default")
+		}
+
 
 	}
 
 	function OpponentAttack() {
+
+		if (dodge[0] === false) {
+
+			current_player.health_points = current_player.health_points - current_opponent.counter_attack_power;
+
+			if(current_opponent.health_points <= 0) {
+
+				current_opponent.health_points = 0
+			}
+
+			$(hp_bar_array[current_player.character_number]).html(current_player.health_points);
+
+			var current_player_percent = (current_player.health_points / current_player.base_health_points) * 100;
+
+			if (current_player_percent < 50) {
+				$(hp_bar_display_array[current_player.character_number]).addClass("progress-bar-warning");
+			}
+
+			if (current_player_percent < 20) {
+				$(hp_bar_display_array[current_player.character_number]).addClass("progress-bar-danger");
+			}
+
+			$(hp_bar_display_array[current_player.character_number]).css("width", current_player_percent + "%")
+
+
+
+		} else {
+
+		}
 
 	}
 
@@ -317,6 +369,8 @@ console.log("ready")
 	}
 
 	function OpponentDodge() {
+
+		dodge[1] = true;
 
 	}
 
@@ -339,5 +393,17 @@ $(document).on("click", ".character", function(e) {
 $(document).on("click", "#p_attack", function(e) {
 
 	PlayerAttack();
+
+})
+
+$(document).on("click", "#p_dodge", function(e) {
+
+	PlayerDodge();
+
+})
+
+$(document).on("click", "#p_special", function(e) {
+
+	PlayerSpecial();
 
 })
