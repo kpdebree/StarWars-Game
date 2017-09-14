@@ -142,6 +142,8 @@ console.log("ready")
 
 	function selectPlayer(player) {
 
+		console.log($(player).find(".id"))
+
 		for (i = 0; i < characters.length; i++) {
 			
 			if( characters[i].id === player.id) {
@@ -154,11 +156,13 @@ console.log("ready")
 
 		console.log(current_player.character_number)
 
+		$("#" + current_player.id).animate({top: "500px", right: "60%"}, 200);
+
+
 		switch(current_player.character_number) {
 
 			//Luke Skywalker
 			case 0:
-
 				$("#leia-organa").css("display", "none");
 				$("#han-solo").css("display", "none");
 
@@ -200,13 +204,15 @@ console.log("ready")
 		}
 	}
 
+	//Selects the Opponent from temporary variable pushed from the button click
 	function selectOpponent(enemy) {
 
-
+		//Goes through the loop to determine which character was selected, and prevents double-selecting the same character twice
 		for (i = 0; i < characters.length; i++) {
 			
 			if( characters[i].id === enemy.id && characters[i].id != current_player.id) {
 
+				//turns boolean on
 				opponent_selected = true;
 				current_opponent = characters[i];
 				console.log("Current Opponent: " + current_opponent.id)
@@ -217,11 +223,17 @@ console.log("ready")
 		console.log(current_opponent.character_number)
 		console.log("Current Opponent: " + current_opponent)
 
+		$("#" + current_opponent.id).animate({top: "500px", right: "40%"}, 200);
+
 	}
 
 
 	function PlayerAttack() {
 
+		//Runs an AI to determine what action should be taken
+		CombatAI();
+
+		//Subtracts HP
 		current_opponent.health_points = current_opponent.health_points - current_player.attack_power;
 
 		if(current_opponent.health_points <= 0) {
@@ -229,8 +241,10 @@ console.log("ready")
 			current_opponent.health_points = 0
 		}
 
-		current_player.attack_power = current_player.attack_power * 2;
+		//Increases attacking power
+		current_player.attack_power = current_player.attack_power + current_player.base_attack_power;
 
+		//Updates graphic display
 		$(hp_bar_array[current_opponent.character_number]).html(current_opponent.health_points);
 
 		var current_opponent_percent = (current_opponent.health_points / current_opponent.base_health_points) * 100;
@@ -245,11 +259,17 @@ console.log("ready")
 
 		$(hp_bar_display_array[current_opponent.character_number]).css("width", current_opponent_percent + "%")
 
-		if(current_opponent.health_points === 0) {
+		if(current_opponent.health_points <= 0) {
 
-				$(current_opponent).css("opacity", ".3");
+				$("#" + current_opponent.id).css("display", "none");
+				alert(current_opponent.name + " has been defeated")
 				opponent_selected = false;
 				current_opponent = {};
+				opponents--;
+
+				if(opponents <= 0) {
+					alert("You have won!")
+				}
 		}
 
 
@@ -268,13 +288,31 @@ console.log("ready")
 
 	function CombatAI() {
 
+		var randomNumber = Math.floor(Math.random() * 3);
+
+		console.log(randomNumber)
+
+		if (randomNumber === 0 ) {
+
+			OpponentAttack();
+			console.log("Attack")
+		}
+
+		if (randomNumber === 1 ) {
+			
+			OpponentDodge();
+
+			console.log("Dodge")
+		}
+
+
 	}
 
 	function OpponentAttack() {
 
 	}
 
-	function OpponentAttack() {
+	function OpponentSpecial() {
 		
 	}
 
