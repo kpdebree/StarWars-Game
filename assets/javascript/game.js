@@ -8,6 +8,8 @@ console.log("ready")
 	var current_opponent = {};
 	var dodge = [false, false];
 	var hp_bar_array = $(".health-points");
+	var player_mana_points = $("#player-mana-points");
+	var opponent_mana_points = $("#opponent-mana-points");
 	var hp_bar_display_array = $(".progress-bar");
 
 	var characters = [{
@@ -158,6 +160,7 @@ console.log("ready")
 		console.log(current_player.character_number)
 
 		$("#" + current_player.id).animate({top: "500px", right: "60%"}, 200);
+		$(".background-image img").attr("src", current_player.background)
 
 
 		switch(current_player.character_number) {
@@ -225,18 +228,19 @@ console.log("ready")
 		console.log("Current Opponent: " + current_opponent)
 
 		$("#" + current_opponent.id).animate({top: "500px", right: "40%"}, 200);
+		$(".background-image img").attr("src", current_opponent.background)
 
 	}
 
 
 	function PlayerAttack() {
 
+		$("#" + current_player.id).animate({top: "500px", right: "50%"}, 200);
 		//Runs an AI to determine what action should be taken
 		CombatAI();
 
 		if (dodge[1] === false) {
 
-		//Subtracts HP
 			current_opponent.health_points = current_opponent.health_points - current_player.attack_power;
 
 			if(current_opponent.health_points <= 0) {
@@ -245,7 +249,7 @@ console.log("ready")
 			}
 
 			//Increases attacking power
-			current_player.attack_power = current_player.attack_power + current_player.base_attack_power;
+			current_player.attack_power = current_player.attack_power + 0.5 * current_player.base_attack_power;
 
 			//Updates graphic display
 			$(hp_bar_array[current_opponent.character_number]).html(current_opponent.health_points);
@@ -276,23 +280,34 @@ console.log("ready")
 			}
 
 		} else {
-			alert("Dodge!")
+
+			$("#text-player").html(current_player.name + " missed " + current_opponent.name)
+
 			dodge[1] = false;
 		}
 
+		$("#" + current_player.id).animate({top: "500px", right: "60%"}, 200);
 
-	}
+
+		//Subtracts HP
+
+		} 
+
+
 
 	function PlayerSpecial() {
 
 		CombatAI();
+
+		$("#text-player").html(current_player.name + " used " + current_player.special_title);
 
 	}
 
 	function PlayerDodge() {
 
 		dodge[0] = true; 
-		alert("Player Dodge")
+		$("#text-player").html(current_player.name + " dodged " + current_opponent.name);
+
 		CombatAI();
 		dodge[0] = false;
 
@@ -333,6 +348,8 @@ console.log("ready")
 
 	function OpponentAttack() {
 
+		$("#" + current_opponent.id).animate({top: "500px", right: "50%"}, 200);
+
 		if (dodge[0] === false) {
 
 			current_player.health_points = current_player.health_points - current_opponent.counter_attack_power;
@@ -360,17 +377,69 @@ console.log("ready")
 
 		} else {
 
-		}
+			dodge[0] = false;
+			$("#text-opponent").html(current_opponent.name + " missed " + current_player.name)
+
+
+		} $("#" + current_opponent.id).animate({top: "500px", right: "40%"}, 200);
 
 	}
 
 	function OpponentSpecial() {
+
+
+		// $("#text-opponent").html(current_opponent.name + " used " + current_opponent.special_title " on " + current_player.name)
+
+			switch(current_opponent.character_number) {
+
+				//Luke Skywalker
+				case 0:
+					
+				break;
+
+				//Leia Organa
+				case 1:
+					
+
+				break;
+
+				//Han Solo
+				case 2:
+					
+
+				break;
+
+				//Darth Vader
+				case 3:
+					
+
+				break;
+				//Darth Sidious
+				case 4:
+					
+
+				break;
+
+				//Boba Fett
+				case 5:
+					
+
+				break;
+			}
+
+
+
+		}
 		
-	}
+		
 
 	function OpponentDodge() {
 
+		$("#" + current_opponent.id).animate({right: "-=150px"}, 200);
 		dodge[1] = true;
+		$("#" + current_opponent.id).animate({top: "500px", right: "40%"}, 200);
+
+		$("#text-opponent").html(current_opponent.name + " dodged " + current_player.name);
 
 	}
 
