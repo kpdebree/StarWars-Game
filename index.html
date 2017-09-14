@@ -10,12 +10,12 @@
 <body>
 	<h1 class="Game-Title">STAR WARS</h1>
 	<div class="container-fluid">
-		<div class="row" id="gameboard">
+		<div class="row" id="character-index">
 			<div class="col-lg-6">
 				<div id="luke-skywalker" class="jedi character">
 					<h2><span class="name">Luke Skywalker</span> <span class="health-points">100</span></h2>
 						<div class="progress">
-	  						<div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" style="width: 100%">
+	  						<div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" style="width: 100%">
 		    				<span class="sr-only">100% Complete</span>
 		  				</div>
 	  				</div>
@@ -24,7 +24,7 @@
 				<div id="leia-organa" class="jedi character">
 					<h2><span class="name">Leia Organa</span> <span class="health-points">100</span></h2>
 						<div class="progress">
-	  						<div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" style="width: 100%">
+	  						<div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" style="width: 100%">
 		    				<span class="sr-only">100% Complete</span>
 		  				</div>
 	  				</div>
@@ -33,7 +33,7 @@
 				<div id="han-solo" class="jedi character">
 					<h2><span class="name">Han Solo</span> <span class="health-points">100</span></h2>
 						<div class="progress">
-	  						<div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" style="width: 100%">
+	  						<div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" style="width: 100%">
 		    				<span class="sr-only">100% Complete</span>
 		  				</div>
 	  				</div>
@@ -44,7 +44,7 @@
 				<div id="darth-vader" class="sith character">
 					<h2><span class="name">Darth Vader</span> <span class="health-points">100</span></h2>
 						<div class="progress">
-	  						<div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" style="width: 100%">
+	  						<div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" style="width: 100%">
 		    				<span class="sr-only">100% Complete</span>
 		  				</div>
 	  				</div>
@@ -53,7 +53,7 @@
 				<div id="darth-sidious" class="sith character">
 					<h2><span class="name">Darth Sidious</span> <span class="health-points">100</span></h2>
 						<div class="progress">
-	  						<div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" style="width: 100%">
+	  						<div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" style="width: 100%">
 		    				<span class="sr-only">100% Complete</span>
 		  				</div>
 	  				</div>
@@ -62,7 +62,7 @@
 				<div id="boba-fett" class="sith character">
 					<h2><span class="name">Boba Fett</span> <span class="health-points">100</span></h2>
 						<div class="progress">
-	  						<div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" style="width: 100%">
+	  						<div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" style="width: 100%">
 		    				<span class="sr-only">100% Complete</span>
 		  				</div>
 	  				</div>
@@ -73,9 +73,62 @@
 	</div>
 	<div class="container-fluid">
 		<div class="row" id="battlespace">
-			<img src="assets/images/background.png" height="500" width="750" />
+			<div class="col-sm-3" id="player-battlespace">
+				<div class="button-container">
+					<ul class="buttons-ul">
+						<li><button id="p_attack" value="attack">Attack</button></li>
+						<li><button id="p_dodge" value="dodge">Dodge</button></li>
+						<li><button id="p_special" value="special">Special</button></li>
+					</ul>
+				</div>
+				<div class="mana-points">
+					<h2><span class="name">Special Attack</span> <span id="player-mana-points">100</span></h2>
+						<div class="progress">
+		  					<div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" style="width: 100%">
+			    			<span class="sr-only">100% Complete</span>
+			  				</div>
+		  				</div>
+		  		</div>
+			</div>
+			<div class="col-sm-6">
+				<img src="assets/images/background.png" height="500" width="750" />
+			</div>
+			<div class="col-sm-3" id="opponent-battlespace">
+				<div class="button-container">
+					<p class="opponent_button" id="o_attack">Attack</p>
+					<p class="opponent_button" id="o_dodge">Dodge</p>
+					<p class="opponent_button" id="o_special">Special</p>
+				</div>
+				<div class="mana-points">
+					<h2><span class="name">Special Attack</span> <span class="mana-points" id="opponent-mana-points">100</span></h2>
+						<div class="progress">
+		  					<div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" style="width: 100%">
+			    			<span class="sr-only">100% Complete</span>
+			  				</div>
+		  				</div>
+		  		</div>
+			</div>
 		</div>
 	</div>
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-sm-9">
+				<div id="text-container">
+					<p id="text">Test 1</p>
+				</div>
+			</div>
+			<div class="col-sm-3">
+				<div class="button-container">
+					<ul class="buttons-ul">
+						<li><button id="restart" value="restart">Restart</button></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+
 
 
 

@@ -10,7 +10,6 @@ h1 {
 
 body {
 	clear: both;
-	background-repeat: no-repeat;
 	background: #485a7d;
 }
 
@@ -19,19 +18,40 @@ h2 {
 	color: white;
 }
 
+#player-battlespace, #opponent-battlespace {
+	height: 500px;
+	padding: 20px;
+}
+
 #battlespace {
 	position: relative;
-	left: 25%;
+	height: auto;
+	margin: 25px;
+	border: solid 3px #72c3ea;
+	border-radius: 10px;
 }
 
-.jedi {
+.mana-points {
+	position: absolute;
 	display: inline-block;
+	bottom: 0;
+	left: 0;
+
+}
+
+#character-index {
+	border: solid 3px #72c3ea;
+	border-radius: 10px;
+	height: auto;
+	margin: 25px;
+	position: block;
+}
+
+.jedi, .sith {
+	display: inline-block;
+	cursor: pointer;
+	text-align: center;
 	margin: 10px 10px 10px 10px;	
-}
-
-.sith {
-	display: inline-block;
-	margin: 10px 10px 10px 10px;
 }
 
 .jedi:hover {
@@ -40,5 +60,31 @@ h2 {
 
 .sith:hover {
 	opacity: 0.5;
+}
+
+#text-container, .button-container {
+	border: solid 3px #72c3ea;
+	border-radius: 10px;
+	text-align: center;
+	margin: 25px;
+	height: 250px;
+}
+
+button, .opponent_button {
+	background: none;
+	border: 1px #72c3ea;
+	margin: 20px;
+	color: #fff;
+	outline: none;
+	box-shadow: none;
+}
+
+button:hover {
+	opacity: 0.7;
+}
+
+#text {
+	margin: 25px;
+	color: white;
 }
 
